@@ -1,0 +1,100 @@
+﻿@{
+    ViewData["Title"] = "Library";
+}
+@section Styles{
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            border: 1px solid none
+        }
+        .wrapper{
+            margin: 20px auto;
+            justify-content: space-between
+        }
+        .container{
+            display: flex;
+            flex-direction: row;
+            width: 700px;
+            margin-bottom: 20px;
+        }
+        .card{
+            display:flex;
+            flex-direction:column;
+            justify-content: space-between;
+            height: 350px;
+            border: none;
+        }
+        img{
+            height: 300px;
+        }
+        th, td{
+            padding: 10px;
+            text-align: left;
+        }
+        td{
+            width: 230px;
+        }
+        th{
+            width: 150px
+        }
+        .bth{
+            width: 100px
+        }
+        .add{
+            position: absolute;
+            left: 50px;
+            top: 90px;
+        }
+    </style>
+}
+@model List<Book>
+
+<div class="wrapper">
+    @foreach (var item in Model)
+    {
+        <div class="container">
+            <div class="card">
+                <div class="info">
+                    <table>
+                        <tr>
+                            <th>Title</th>
+                            <td>@item.Title</td>
+                        </tr>
+                        <tr>
+                            <th>Author</th>
+                            <td>@item.Author</td>
+                        </tr>
+                        <tr>
+                            <th>Genre</th>
+                            <td>@item.Genre</td>
+                        </tr>
+                        <tr>
+                            <th>Publisher</th>
+                            <td>@item.Publisher</td>
+                        </tr>
+                         <tr>
+                            <th>YearOfPublish</th>
+                            <td>@item.YearOfPublish</td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <a asp-action="details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+                    <a asp-action="edit" asp-route-id="@item.Id" class="btn btn-outline-primary">Edit</a>
+                    <a asp-action="delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+          @*  <div class="image">
+                <img src=@($"data:image/jpeg; base64,{Convert.ToBase64String(@item.Photo)}") alt="@item.Title" />
+            </div>*@
+            <div class="image">
+                <img src="@item.FilePath" alt="@item.Title" />
+            </div>
+        </div>
+    }
+</div>
+<div class="add">
+    <a asp-action="create" class=" btn btn-success">Create</a>
+</div>

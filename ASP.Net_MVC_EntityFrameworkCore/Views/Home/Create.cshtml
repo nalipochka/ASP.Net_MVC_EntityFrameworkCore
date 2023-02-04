@@ -1,0 +1,98 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@section Styles{
+    <style>
+        .main{
+            display: flex;
+        }
+        .form-control{
+            width:500px;
+        }
+        .info{
+            margin-right: 30px;
+        }
+        .col-form-label{
+            font-stretch:expanded;
+        }
+        .buttons{
+            width: 1000px
+            display:flex;
+            justify-content: space-around;
+        }
+        .btn{
+            width: 500px;
+            margin-right: 30px;
+            margin-top: 20px;
+        }
+        .moreInfo{
+            height: 400px;
+            resize: none;
+        }
+    </style>
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div class="main">
+
+        <div class="info">
+            <div class="row">
+                <label class="col-form-label">
+                Title:
+                    <input class="form-control" type="text" name="title" />
+            </label>
+            </div>
+           
+            <div class="row">
+                <label class="col-form-label">
+                Author:
+                    <input class="form-control" type="text" name="author" />
+            </label>
+            </div>
+            
+            <div class="row">
+                <label class="col-form-label">
+                    Genre:
+                    <input class="form-control" type="text" name="genre" />
+                </label>
+            </div>
+            
+            <div class="row">
+                <label class="col-form-label">
+                    Publisher:
+                    <input class="form-control" type="text" name="publisher" />
+                </label>
+            </div>
+            
+            <div class="row">
+                <label class="col-form-label">
+                    Year of publish:
+                    <input class="form-control" type="number" name="yearOfPublish" />
+                </label>
+            </div>
+            
+            <div class="row">
+                <label class="col-form-label">
+                Select image:
+                    <input class="form-control" type="file" name="filepath" accept="image/*" />
+            </label>
+            </div>
+
+        </div>
+
+        <div class="moreInfo">
+            <label class="col-form-label">
+                About book:
+                <textarea class="form-control moreInfo" cols="4" rows="10" name="more"></textarea>
+            </label>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <input class="btn btn-sm btn-primary" type="submit" value="Create">
+        <a asp-action="Library" class="btn btn-sm btn-info" >Return to books</a>
+    </div>
+    
+
+</form>
